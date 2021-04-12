@@ -7,27 +7,68 @@
     <title>Tạo bảng dữ liệu đơn giản</title>
 </head>
 <body>
+    <form action="google.com.vn" method="POST">
+        <fieldset style="width: 500px;">
+            <legend>Trình tìm kiếm</legend>
+            <p>Chọn Quốc gia</p>
+            <select name="Nation" >
+                <option value="China">Trung Quốc</option>
+                <option value="VietNam">Việt Nam</option>
+                <option value="Singapore">Singapo</option>
+                <option value="Thailand">Thái Lan</option>
+            </select>
+            <p>Chọn mạng Server</p>
+            <select name="Server" multiple >
+                <option value="Viettel">Viettel</option>
+                <option value="CDC">CDC</option>
+                <option value="VNPT">VNPT</option>
+                <option value="CMC">CMC</option>
+                <option value="HCMPOST">HCMPOST</option>
+                <option value="GOOGLE">GOOGLE</option>
+            </select> <br> <br>
+            <input type="text" name="search" placeholder="Bạn tìm gì?"> <br> <br>            
+            <label></label> <input type="radio" name="type" value="hinh"> Hình ảnh </label> <br>
+            <label></label> <input type="radio" name="type" value="web"> Trang web </label> <br>
+            <label></label> <input type="radio" name="type" value="baiviet"> Bài viết </label> <br>
+            <label></label> <input type="checkbox" name="type" value="zing"> Zing.vn </label> <br>
+            <label></label> <input type="checkbox" name="type" value="vnexpress"> vnexpress.vn </label> <br>
+            <label></label> <input type="checkbox" name="type" value="zing"> baomoi.vn </label> <br>
+            <p>Mô tả nội dung tìm kiếm</p>
+            <textarea name="decription" id="123" cols="30" rows="10"></textarea> <br>
+            <input type="button" value="Tìm">
+            <input type="reset" value="RESET">
+        </fieldset>
+    </form>
     <p>
         <h2>Tạo bảng dữ liệu</h2>  
     </p>
-    <table>
-        <th>
-            <td>STT</td>
-            <td>Tên</td>
-            <td>Nội dung</td>
-            <td>Đơn giá</td>
-            <td>Số lượng</td>
-            <td>Thành tiền</td>
-            <td>Ghi chú</td>
-        </th>
+    <table border="1">
+        <tr>
+            <th>STT</th>
+            <th>Tên</th>
+            <th>Nội dung</th>
+            <th>Đơn giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+            <th>Ghi chú</th>
+        </tr>
         <tr>
             <td>01</td>
             <td>RTU560</td>
             <td>Thiết bị điều khiển xa</td>
             <td>250.000.000</td>
-            <td>01</td>
-            <td>250.000.000</td>
+            <td>03</td>
+            <td>750.000.000</td>
             <td>Thu hồi từ PC Bình Định</td>
+        </tr>
+        <tr>
+            <td>02</td>
+            <td>3G ABB</td>
+            <td>Thiết bị 3G</td>
+            <td>50.000.000</td>
+            <td>03</td>
+            <td>150.000.000</td>
+            <td>Đầu tư mới</td>
         </tr>
     </table>
 </body>
