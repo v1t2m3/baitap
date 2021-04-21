@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy Tính</title>
+    <script src="MayTinh.js"></script>
+</head>
+<body>
+    <style>
+        input{
+            width: 100%;
+        }
+        td{
+                        border: 1px solid black;
+        }
+        table {
+                        border: 1px solid black;
+                        border-collapse: collapse;
+                        width: 410px;
+                        }
+    </style>
+    <table>
+        <tr>
+            <td colspan="7"> <label id="manhinh">0</label></td>
+        </tr>
+        <tr>
+            <td > <input type="button" id="Rad" value="Rad" > </td>
+            <td> <input type="button" id="Spare" value="..."> </td>
+            <td> <input type="button" id="GT" value="x!"> </td>
+            <td> <input type="button" id="ngoacTr" value="("> </td>
+            <td> <input type="button" id="ngoacPh" value=")"> </td>
+            <td> <input type="button" id="phantram" value="%"> </td>
+            <td> <input type="button" id="AC" value="AC"> </td>
+        </tr>
+        <tr>
+            <td> <input type="button" id="Inv" value="Inv"> </td>
+            <td> <input type="button" id="Sin" value="Sin"> </td>
+            <td> <input type="button" id="Ln" value="Ln"> </td>
+            <td> <input type="button" id="7" value="7" onclick="Click_7()"> </td>
+            <td> <input type="button" id="8" value="8" onclick="Click_8()"> </td>
+            <td> <input type="button" id="9" value="9" onclick="Click_9()"> </td>
+            <td> <input type="button" id="cong" value="+" onclick="Click_cong()"> </td>
+        </tr>
+        <tr>
+            <td> <input type="button" id="n" value="n"> </td>
+            <td> <input type="button" id="Cos" value="Cos"> </td>
+            <td> <input type="button" id="lg" value="lg"> </td>
+            <td> <input type="button" id="4" value="4" onclick="Click_4()"> </td>
+            <td> <input type="button" id="5" value="5" onclick="Click_5()"> </td>
+            <td> <input type="button" id="6" value="6" onclick="Click_()"> </td>
+            <td> <input type="button" id="nhan" value="x" onclick="Click_nhan()"> </td>
+        </tr>
+        <tr>
+            <td> <input type="button" id="e" value="e"> </td>
+            <td> <input type="button" id="tan" value="tan"> </td>
+            <td> <input type="button" id="sqrt" value="sqrt"> </td>
+            <td> <input type="button" id="1" value="1" onclick="Click_1()"> </td>
+            <td> <input type="button" id="2" value="2" onclick="Click_2()"> </td>
+            <td> <input type="button" id="3" value="3" onclick="Click_3()"> </td>
+            <td> <input type="button" id="tru" value="-" onclick="Click_tru()"> </td>
+        </tr>
+        <tr>
+            <td> <input type="button" id="Ans" value="Ans"> </td>
+            <td> <input type="button" id="EXP" value="EXP"> </td>
+            <td> <input type="button" id="mu" value="x^y"> </td>
+            <td> <input type="button" id="0" value="0" onclick="Click_0()"> </td>
+            <td> <input type="button" id="cham" value="."> </td>
+            <td> <input type="button" id="bang" value="=" onclick="tinh()"> </td>
+            <td> <input type="button" id="cong" value="+" onclick="Click_cong()"> </td>
+        </tr>
+        
+    </table>
+</body>
+</html>
