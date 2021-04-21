@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doi tien te</title>
+    <script src="DoiTienTe.js"></script>
+</head>
+<body>
+    <style>
+        tr, th {
+            width: max-content;
+        }
+    </style>
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+
+        </tr>
+        <tr>
+            <td > <input type="text" id="sotien" placeholder="number"></td>
+            <td>
+                <select name="nation1" id="nation1">
+                    <option value="Vietnam">Việt Nam</option>
+                    <option value="Japan">Nhật</option>
+                    <option value="China">Trung Quốc</option>
+                    <option value="Singapore">Singapo</option>
+                </select>
+            </td>
+            <td>
+                <select name="nation2" id="nation2">
+                    <option value="Vietnam">Việt Nam</option>
+                    <option value="Japan">Nhật</option>
+                    <option value="China">Trung Quốc</option>
+                    <option value="Singapore">Singapo</option>
+                </select>
+            </td>
+            <td>
+                <input type="button" id="doitien" value="Change" onclick="doitien()">
+            </td>
+        </tr>
+    </table>
+    <p id="result">Result:</p>
+</body>
+</html>
