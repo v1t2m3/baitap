@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nam nhuan</title>
+</head>
+<body>
+    <form >
+    <fieldset style="width: max-content;">
+    <legend>Kiểm tra năm nhuận</legend>
+    <label for="">Nhập năm</label> <br> <br>
+    <input type="text" id="nam"> <br> <br>
+    <input type="button" id="kiemtra" onclick="check()" value="Kiểm tra"> <br> <br>
+    <P id="result"></P>
+    </fieldset>
+    </form>
+    <script>
+        function check(){
+            var a = parseInt(document.getElementById("nam").value);
+            if ((a%4==0 && a%100!=0)||(a%100==0 && a%400==0)) {
+                document.getElementById("result").innerHTML = "Đây là năm nhuận";
+                document.getElementById("result").style["color"] = "blue";
+            }
+            else if (document.getElementById("nam").value.length == 0) {
+                document.getElementById("result").innerHTML = "Bạn chưa nhập năm";
+                document.getElementById("result").style["color"] = "red";
+            }
+            else {
+            document.getElementById("result").innerHTML = "Đây không phải là năm nhuận";
+            document.getElementById("result").style["color"] = "orange";
+            }
+        }
+    </script>
+
+</body>
+</html>
