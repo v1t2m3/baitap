@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giá trái cây</title>
+</head>
+<body>
+    <form action="">
+        <fieldset style="width: max-content;">
+            <legend>Giá trái cây</legend>
+            <label for="">Chọn trái cây</label>
+            <select name="traicay" id="traicay" onchange="run()" >
+                <option value="Oi">Trái cây</option>
+                <option value="Oi">Ổi</option>
+                <option value="Dua_Hau">Dưa hấu</option>
+                <option value="Tao">Táo</option>
+                <option value="Xoai">Xoài</option>
+                <option value="Cam">Cam</option>
+                <option value="Chom_Chom">Chôm Chôm</option>
+                <option value="Mang_Cut">Măng cụt</option>
+            </select> <br> <br>
+            <label id="gia">Giá:</label>
+        </fieldset>
+    </form>
+    <script>
+    function run() {
+        var fruits = document.getElementById("traicay").value;
+        var giatien =  "";
+        const tiente = "VNĐ";
+        switch (fruits) {
+            case "Oi" :
+                giatien = '20000';
+            break;
+            case "Dua_Hau" :
+                giatien = '22000';
+            break;
+            case "Tao" :
+                giatien = '30000';
+            break;
+            case "Xoai" :
+                giatien = '29000';
+            break;
+            case "Cam" :
+                giatien = '40000';
+            break;
+            case "Chom_Chom" :
+                giatien = '42000';
+            break;
+            case "Mang_Cut" :
+                giatien = '50000';
+            break;
+            default:
+                giatien ='-----';
+        }
+        document.getElementById("gia").innerHTML = "Giá"+" : " +giatien + " "+tiente;
+    }
+    </script>
+</body>
+</html>

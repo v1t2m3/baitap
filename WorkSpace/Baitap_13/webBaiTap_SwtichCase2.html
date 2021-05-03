@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Case 2</title>
+</head>
+<body>
+    <script>
+        let a = parseInt(prompt('Nhập vào số a từ 1 đến 9:'));
+        if (a>9) {
+            alert ('Số không hợp lệ do >9')
+        }
+        else {
+        let b = a%2;    
+        switch (b) {
+            case 0 :
+            alert('Đây là số chẵn');
+            break;
+            case 1 :
+            alert ('Đây là số lẽ');
+            break;
+        }
+    }
+    </script>
+    
+</body>
+</html>

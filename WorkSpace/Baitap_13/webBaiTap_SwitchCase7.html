@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính điểm khối D</title>
+</head>
+<body>
+        <form action="">
+            <fieldset style="width: max-content;">
+                <legend>Điểm Đại học khối D</legend>
+                <Label>Nhập điểm môn Toán: </Label>
+                <input type="text" id="Toan" placeholder="Điểm môn Toán" style="margin-right: 50px; width: max-content;"> <br> <br>
+                <label>Nhập điểm môn Văn: </label>
+                <input type="text" id="Van" placeholder="Điểm môn Văn" style="margin-left: 30px; width: max-content;"> <br> <br>
+                <label>Nhập điểm môn Anh: </label>
+                <input type="text" id="Anh" placeholder="Điểm môn Anh" style="margin-left: 30px; width: max-content;"> <br> <br>
+                <label>Chọn khu vực ưu tiên: </label>
+                <select name="khuvuc" id="khuvuc" style="margin-left: 30px; width: max-content;">
+                    <option value="KV1">Khu vực I</option>
+                    <option value="KV2">Khu vực II</option>
+                    <option value="KV2NT">Khu vực II-NT</option>
+                    <option value="KV3">Khu vực III</option>
+                </select> <br> <br>
+                <input type="button" id="Tinh" value="Kết quả" onclick="run()"> <br> <br>
+                <label for="" id="result">Tổng điểm là:</label>
+            </fieldset>
+        </form>
+        <script>
+            function run() {
+                var diemToan = parseInt(document.getElementById("Toan").value);
+                var diemVan = parseInt(document.getElementById("Van").value);
+                var diemAnh= parseInt(document.getElementById("Anh").value);
+                var diemKV = 0;
+                var diemTong=0
+                var KV = document.getElementById("khuvuc").value;
+                switch (KV) {
+                    case "KV1":
+                        diemKV=0.75;
+                    break;
+                    case "KV2":
+                        diemKV=0.25;
+                    break;
+                    case "KV2NT":
+                        diemKV=0.5;
+                    break;
+                    case "KV3":
+                        diemKV=0;
+                    break;
+                    default:
+                        diemKV=0;
+                }
+                diemTong = diemToan + diemVan +diemAnh +diemKV;
+                document.getElementById("result").innerHTML = "Tổng điểm là: "+ diemTong;
+
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Số ngày trong tháng</title>
+</head>
+<body>
+    <form action="">
+        <fieldset style="width: max-content;">
+            <legend>Số ngày trong tháng</legend>
+            <label for="">Chọn tháng</label>
+            <select name="thang" id="thang" onchange="run()" >
+                <option value="Jan">Tháng 1</option>
+                <option value="Feb">Tháng 2</option>
+                <option value="Mar">Tháng 3</option>
+                <option value="Apr">Tháng 4</option>
+                <option value="May">Tháng 5</option>
+                <option value="Jun">Tháng 6</option>
+                <option value="Jul">Tháng 7</option>
+                <option value="Aug">Tháng 8</option>
+                <option value="Sep">Tháng 9</option>
+                <option value="Oct">Tháng 10</option>
+                <option value="Nov">Tháng 11</option>
+                <option value="Dec">Tháng 12</option>
+            </select> <br> <br>
+            <label id="ngay">Số ngày trong tháng là:</label>
+        </fieldset>
+    </form>
+    <script>
+    function run() {
+        var month = document.getElementById("thang").value;
+        const a = "Số ngày trong tháng là: 31";
+        const b = "Số ngày trong tháng là: 30";
+        const c = "Số ngày trong tháng là: 29";
+        const d = "Số ngày trong tháng là: 28";
+        var e = new Date().getFullYear();
+        console.log(e);
+        switch (month) {
+            case "Jan" :
+                document.getElementById("ngay").innerHTML = a;
+            break;
+            case "Feb" :
+            if ((e%4==0 && e%100!=0)||(e%100==0 && e%400==0)) {
+                document.getElementById("ngay").innerHTML = c;;
+            }
+            else {
+                document.getElementById("ngay").innerHTML = d;
+            }
+            
+            break;
+            case "Mar" :
+                document.getElementById("ngay").innerHTML = a;
+            break;
+            case "Apr" :
+                document.getElementById("ngay").innerHTML = b;
+            break;
+            case "May" :
+                document.getElementById("ngay").innerHTML = a;
+            break;
+            case "Jun" :
+                document.getElementById("ngay").innerHTML = b;
+            break;
+            case "Jul" :
+                document.getElementById("ngay").innerHTML = a;
+            break;
+            case "Aug" :
+                document.getElementById("ngay").innerHTML = a;
+            break;
+            case "Sep" :
+                document.getElementById("ngay").innerHTML = b;
+            break;
+            case "Oct" :
+                document.getElementById("ngay").innerHTML = a;
+            break;
+            case "Nov" :
+                document.getElementById("ngay").innerHTML = b;
+            break;
+            case "Dec" :
+                document.getElementById("ngay").innerHTML = a;
+            break;
+        }
+    }
+    </script>
+</body>
+</html>
