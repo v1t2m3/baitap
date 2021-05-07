@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tổng 30 số tự nhiên chia hết 7</title>
+</head>
+<body>
+    <script>
+        var a=0;
+        var count =1;
+        var sum = 0;
+        while (count<31) {
+            a+=1;
+            if (a%7==0){
+                sum+=a;
+                count+=1;
+                document.write("<p>"+a+"</p>");
+            }
+        }
+        document.write("<p>Tổng 30 số chia hết cho 7 đầu tiên là: "+sum+"</p>");
+    </script>
+</body>
+</html>
