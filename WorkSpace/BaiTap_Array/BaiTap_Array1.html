@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <input type="text" id="nhap" placeholder="Nhập số bất kỳ"> <br> <br>
+
+    <input type= "button" value="Nhập" onclick="Nhap()">
+    <input type="button" value="Hiển thị" onclick="Show()"> <br> <br>
+    <p id="hienthi"></p>
+    <script>
+        var numberArray = new Array();
+        var newstring ="";
+        function Nhap(){
+            var soa = document.getElementById('nhap').value;
+            numberArray.push(soa);
+        }
+
+        function Show(){
+            numberArray.forEach(element => {
+            newstring = newstring + "Giá trị: " + element + "<br>";    
+            });
+            document.getElementById('hienthi').innerHTML = newstring;
+        }
+    </script>
+    
+</body>
+</html>
