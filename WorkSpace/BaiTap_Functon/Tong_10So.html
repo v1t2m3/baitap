@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tong 10 so</title>
+</head>
+<body>
+    <script>
+        function tong10N(){
+            let sumN = 0;
+            let Narr = new Array();
+            for (var i = 0; i<10; i++) {
+                Narr.push(parseInt(prompt('Nhap so bat ky <10:')));
+            }
+            for (var j = 0; i=j<Narr.length; j++) {
+                sumN+= Narr[j];
+            }
+            return sumN;
+        }
+        alert(tong10N());
+    </script>
+    
+</body>
+</html>

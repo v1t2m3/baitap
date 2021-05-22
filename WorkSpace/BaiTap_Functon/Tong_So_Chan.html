@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tong So Chan</title>
+</head>
+<body>
+    <script>
+        var a = [4,6,8,7,2,3,1,15,9,56,48,15,64,88,21,34];
+        function tongSoChan() {
+            suma = 0;
+            for (var i = 0; i<=a.length; i++) {
+                if (a[i]%2==0) {
+                    suma+=a[i];
+                }
+            }
+            return suma;
+        }
+        alert(tongSoChan());
+    </script>
+</body>
+</html>
