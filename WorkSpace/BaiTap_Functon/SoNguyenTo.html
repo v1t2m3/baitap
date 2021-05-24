@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So nguyen To</title>
+</head>
+<body>
+    <h2>Tim so nguyen to nho hon N </h2>
+    <input type="text" id="N" placeholder="Nhap so N"> <br><br>
+    <input type="button" value="RUN" onclick="Run()">
+    <label for="" id="SNT">So nguyen to:</label>
+
+    <script>
+        function checkSNT (n) {
+            let SNT = true;
+            let i = 2;
+            while ( i<n) {
+                if (n%i==0) {
+                    SNT = false;
+                }
+                i++;
+            }
+            return SNT;
+        }
+        
+        function Run (){
+        var N = parseInt(document.getElementById('N').value);
+        var SNTstring ='';
+           for (var j =1; j<=N; j++) {
+                if (checkSNT(j)) {
+                    SNTstring = SNTstring + j + '&nbsp';
+                }
+           }
+           document.getElementById('SNT').innerHTML = 'So nguyen to:' + SNTstring;
+        }
+
+    </script>
+    
+</body>
+</html>

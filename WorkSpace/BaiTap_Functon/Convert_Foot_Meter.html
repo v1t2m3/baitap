@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foot-Meter</title>
+</head>
+<body>
+    <h3>Convert Foot-Meter</h3> <br>
+    <table border="0">
+        <tr>
+            <td>
+                <input type="text" id="Foot" placeholder="Foot">
+            </td>
+            <td>
+                <input type="text" id="Meter" placeholder="Meter"> 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="Convert" onclick="Run()">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="" id="Meter2">Meter: </label>
+            </td>
+            <td>
+                <label for="" id="Foot2">Foot: </label>
+            </td>
+        </tr> 
+    </table>
+    <script>
+       /* var a = 0;
+       var b = 0; */
+        function ConvertToMeter (a) {
+            return a*0.305;
+        }
+        function ConvertToFoot (b) {
+            return b*3.279;
+        }
+        function Run() {
+        let foot = parseInt(document.getElementById('Foot').value);
+        let meter = parseInt(document.getElementById('Meter').value);
+        document.getElementById('Meter2').innerHTML = ConvertToMeter(foot);
+        document.getElementById('Foot2').innerHTML = ConvertToFoot(meter);
+        console.log(foot);
+        console.log(meter);
+        }
+    </script>
+</body>
+</html>

@@ -14,9 +14,9 @@
             for (var i = 0; i<10; i++) {
                 Narr.push(parseInt(prompt('Nhap so bat ky <10:')));
             }
-            for (var j = 0; i=j<Narr.length; j++) {
-                sumN+= Narr[j];
-            }
+            Narr.forEach(element => {
+                sumN+= element;
+            });
             return sumN;
         }
         alert(tong10N());

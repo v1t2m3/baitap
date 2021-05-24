@@ -12,10 +12,12 @@
     <input type="number" id="temp" placeholder="Fahrenheit" onchange="run()"> <br> <br>
     <label for="" id="tempC">Celcius:</label>
     <script>
-        function run() {
+        function ConverToC(f) {
+            return (f-32)/1.8;
+        }
+        function run(){
             let F = parseInt(document.getElementById('temp').value);
-            let C = (F-32)/1.8;
-            document.getElementById('tempC').innerHTML = "Celcius: " + C;
+            document.getElementById('tempC').innerHTML = "Celcius: " + ConverToC(F).toFixed(2);
         }
 
     </script>
