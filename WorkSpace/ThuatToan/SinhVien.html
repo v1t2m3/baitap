@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinh Viên</title>
+</head>
+<body>
+    <h4>Dach sach Sinh Vien</h4>
+    <form action="">
+        <fieldset>
+            <legend>Nhập Sinh Viên</legend>
+            <input type="text" id="TenSV" placeholder="Nhập tên Sinh viên"> <br> <br>
+            <input type="text" id="DiemSV" placeholder="Nhập điểm Sinh viên"> <br> <br>
+            <input type="button" value="Import" onclick="Import()"> <br> <br>
+            <input type="button" value="Export" onclick="Export()"> <br> <br>
+            <Label id="Total">Số sinh viên đã nhập :</Label>
+            
+        </fieldset>
+    </form>
+    <p id="Danh_Sach">Danh sách sinh viên:</p>
+    <script>
+        var count = 0;
+        var ArrSV = new Array ();
+        class SinhVien {
+            constructor(hoten, diemso) {
+                this.HoTen = hoten;
+                this.DiemSo = diemso;
+            }
+            getName() {
+                return this.HoTen;
+            }
+            getDiemSo() {
+                return this.DiemSo;
+            }
+        }
+        function Import() {
+            var TenSV = document.getElementById('TenSV').value;
+            var DiemSV = parseInt(document.getElementById('DiemSV').value);
+            var SV = new SinhVien(TenSV, DiemSV);
+            ArrSV.push(SV);
+            count = ArrSV.length;
+            document.getElementById('Total').innerHTML = 'Số sinh viên đã nhập : ' + count;
+        }
+        function Export() {
+            var MinDS = ArrSV[0].getDiemSo();
+            var SVsub = new SinhVien();
+            var Stringnew ='';
+            if (ArrSV.length ==0) {
+                document.getElementById('Danh_Sach').innerHTML='Chưa có danh sách sinh viên'
+
+            } else {
+                for (var i = 0; i<ArrSV.length; i ++) {
+                    for (var j= i+1; j<ArrSV.length; j++) {
+                        if (ArrSV[i].getDiemSo()>ArrSV[j].getDiemSo()){
+                            SVsub = ArrSV[j];
+                            ArrSV[j] = ArrSV[i];
+                            ArrSV[i] = SVsub;
+                        }
+                    }
+                }
+            }
+            for (let i = 0; i < ArrSV.length; i++) {
+            Stringnew = Stringnew + ArrSV[i].getName() + '-' + ArrSV[i].getDiemSo() + '</br>';
+            }
+            document.getElementById('Danh_Sach').innerHTML= 'Danh sách sinh viên: </br>' + Stringnew;
+        }
+    </script>
+</body>
+</html>

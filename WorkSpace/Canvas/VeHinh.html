@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hình chu nhat</title>
+</head>
+<body>
+    <canvas id="Rec" style="height: 500px; width: 800px; background-color: blue;"></canvas>
+    
+</body>
+    <script>
+    var myCanvas1 = document.getElementById("Rec");
+    var context1 = myCanvas1.getContext('2d'); //cung cấp cho các bạn các thư viện để hình.
+    context1.beginPath();  //bắt đầu vẽ
+
+    context1.strokeStyle='red'
+    context1.arc(100, 150, 50, Math.PI, 2 * Math.PI);// fillRect(x,y,width,height): x,y là toạ độ, width và height là chiều dài và chiều rộng của hình chữ nhật
+    context1.stroke();
+    </script>
+</html>

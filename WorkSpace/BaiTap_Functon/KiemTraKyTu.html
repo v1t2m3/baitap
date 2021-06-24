@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra ký tự</title>
+</head>
+<body>
+    <h3>Kiểm tra ký tự</h3>
+    <input type="text" id="Chuoi" placeholder="Chuỗi bất kỳ">
+    <input type="button" value="Run" onclick="run()"> <br> <br>
+    <label for="" id="ketqua"></label>
+    <script>
+        function Check(str) {
+            var Isnum = false;
+            var i= 0;
+            while (i<str.length){
+                console.log(str.codePointAt(i));
+                if (str.codePointAt(i)<48 || str.codePointAt(i)>57) {
+                    Isnum = false;
+                    break;
+                }
+                Isnum = true;
+                i++;
+            }
+            return Isnum;   
+        }
+       
+        function run() {
+            var Str = new Array;
+            Str = document.getElementById('Chuoi').value;
+            var StrResult = '';
+                if (Check(Str)) {
+                    StrResult= 'Đây là số';
+                } else {
+                    StrResult= 'Đây là ký tự';
+                }
+            document.getElementById('ketqua').innerHTML = StrResult;
+        }
+    </script>
+</body>
+</html>

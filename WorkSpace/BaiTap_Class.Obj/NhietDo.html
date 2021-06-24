@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhiệt độ</title>
+</head>
+<body>
+    <h4>Nhiệt độ </h4>
+    <input type="text" id="do_c" placeholder="Nhập độ C"> <br> <br>
+    <input type="button" value="Tính" onclick="run()"> <br> <br>
+    <label for="" id="do_F"></label> <br> 
+    <label for="" id="do_K"></label>
+    <script>
+        class NhietDo {
+            constructor (doC) {
+                this.DoC = doC;
+            }
+            DoF (){
+                return (this.DoC*1.8)+32;
+            }
+            DoK (){
+                return this.DoC + 273.15;
+            }
+            setDoC (doC) {
+                this.DoC = doC;
+            }
+        }
+        function run() {
+        var nhietdo = new NhietDo();
+        nhietdo.setDoC(parseInt(document.getElementById('do_c').value));
+        document.getElementById('do_F').innerHTML = 'Nhiệt đô F: '+ nhietdo.DoF().toFixed(2);
+        document.getElementById('do_K').innerHTML = 'Nhiệt độ K: '+ nhietdo.DoK().toFixed(2);
+        }
+    </script>
+
+    
+</body>
+</html>

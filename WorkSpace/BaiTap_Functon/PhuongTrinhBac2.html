@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ax2+Bx+C=0</title>
+</head>
+<body>
+    <script>
+        var i = parseInt(prompt('Nhập số: ax2'));
+        var j = parseInt(prompt('Nhập số bx'));
+        var k = parseInt(prompt('Nhập số c'));
+        document.write('<p>– Phương trình bạn vừa nhập vào là:' + i+'x2 +'+ j +'x + '+ k + ' = 0</p>');
+        document.write('<p>' + giai(i,j,k) + '</p>');
+        function giai(a, b, c){
+            let delta = b*b-4*a*c;
+            var newstring ='';
+            var result = 0;
+            var result1= 0;
+            var result2= 0;
+            if (delta<0) { return 'Phương trình vô nghiệm'}
+            else if (delta ==0) {
+                newstring ='Phuong trình có nghiệm kép x1 = x2 = ' ;
+                result = -b/(2*a);
+                return newstring+= result;
+            }
+            else if (delta>0) { 
+                newstring ='Phuong trình có nghiệm: ' ;
+                result1 =  -b+Math.sqrt(delta)/(2*a);
+                result2 =  -b-Math.sqrt(delta)/(2*a);
+                return newstring = newstring + 'x1 = '+ result1 + '; x2 = '+ result2 ;
+            }
+        }
+
+    </script>
+</body>
+</html>

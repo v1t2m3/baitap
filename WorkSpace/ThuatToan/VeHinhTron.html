@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vẽ hình tròn</title>
+</head>
+<body>
+    <h3>Vẽ Hình Tròn</h3>
+    <input type="text" id="radius" placeholder="Nhập bán kính"> <br> <br>
+    <select name="colors" id="color" >
+        <option value="red">Màu đỏ</option>
+        <option value="green">Màu xanh lá</option>
+        <option value="pink">Màu hồng</option>
+        <option value="blue">Màu xanh</option>
+        <option value="black">Màu đen</option>
+    </select>
+    <input type="button" value="Import" onclick="Import()"> <br> <br>
+    <input type="text" id="Radius" placeholder="Nhập R hình tròn cần tìm"> <br> <br>
+    <input type="button" value="Find" onclick="Find()"> <br> <br>
+    <label for="" id="Result"></label> <br>
+    <canvas id="Bgr" width="600" height="300" style="background-color: aqua;"></canvas>
+    <script>
+        
+        class Circle {
+            constructor (id, radius, color) {
+                this.Id = id;
+                this.Radius = radius;
+                this.Color = color;
+            }
+            getRadius () {
+                return this.Radius;
+            }
+            draw (x,y,idCanvas) {
+                let circle = document.getElementById(idCanvas).getContext('2d');
+                circle.beginPath();
+                circle.fillStyle = this.Color;
+                circle.arc(x, y, this.Radius, 0, 2*Math.PI);
+                circle.fill();
+            }
+            clear () {
+                
+            }
+            
+            
+        }
+
+        var MangHT = new Array ();
+        var hinhtron = new Circle();
+
+        function Import() {
+            var bankinh = parseInt(document.getElementById('radius').value);
+            var mau = document.getElementById('color').value;
+            hinhtron = new Circle(Math.floor(Math.random()*10),bankinh,mau);
+            MangHT.push(hinhtron);
+        }
+        function Find() {
+
+            var RFind = parseInt(document.getElementById('Radius').value);
+            var count = 0;
+            MangHT.forEach(element => {
+                if (element.getRadius()==RFind) {
+                    count++;
+                    element.draw(100,100,'Bgr');
+                }
+            });
+            if (count>0) {
+                document.getElementById('Result').innerHTML = 'Có ' + count + ' hình tròn có bán kính ' + RFind; 
+            } else {
+                document.getElementById('Result').innerHTML = 'Không tìm thấy hình tròn nào có bán kính cần tìm'; 
+            }
+        }
+    </script>
+</body>
+</html>

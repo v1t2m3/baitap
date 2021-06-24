@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSo nho nhat</title>
+</head>
+<body>
+    <script>
+        let a = parseInt(prompt('Nhap so a'));
+        let b = parseInt(prompt('Nhap so b'));
+        let c = parseInt(prompt('Nhap so c'));
+        function min(i,j,h) {
+            let min = i;
+            if (min>j) {
+                min = j;
+            }
+            if (min>h) {
+                min = h;
+            }
+            return min;
+        }
+        alert(min(a,b,c));
+    </script>
+    
+</body>
+</html>

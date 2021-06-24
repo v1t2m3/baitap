@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công tắc và bóng đèn</title>
+</head>
+<body>
+    <h3>Bật tắt bóng đèn</h3>
+    <input type="button" id="Off" value="Turn ON/OFF" onclick="Action()"> <br> <br>
+    <label for="" id="StatuS"></label>
+    <script>
+        
+        class SwitchButton {
+            constructor (status) {
+                this.Status = status;
+            }
+            swConnectLamp (lamp) {
+                this.Lamp = lamp;
+            }
+            switchOff () {
+                this.Status = false;
+                this.Lamp.turnOff();
+            }
+            switchOn () {
+                this.Status = true;
+                this.Lamp.turnOn();
+            }
+            /* Status () {
+                return this.Status;
+            } */
+        }
+        class ElectricLamp {
+            constructor(status) {
+                this.Status = status;
+            }
+            turnOff () {
+                return this.Status = false;
+            }
+            turnOn () {
+                return this.Status = true;
+            }
+            /* Status () {
+                return this.Status;
+            } */
+        }
+        var litteLamp = new ElectricLamp(false);
+        var swButton = new SwitchButton(false);
+        swButton.swConnectLamp(litteLamp);
+        function Action() {
+            console.log('Vào hàm Action');
+            if (swButton.Status) {
+                swButton.switchOff();
+                console.log('Vào hàm if true');
+            } else {
+                swButton.switchOn();
+                console.log('Vào hàm if false');
+            }
+            console.log('viết html');
+            document.getElementById('StatuS').innerHTML = 'Công tắc: '+ swButton.Status + ' , bóng đèn: '+ litteLamp.Status;
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm các giá trị của Mảng</title>
+</head>
+<body>
+    <script>
+    function minarr(arr) {
+        var j = 0;
+        var min = arr[0];
+        while (j<arr.length) {
+            if (min>arr[j]) {
+                min = arr[j];
+            }
+            j++;
+        }
+        return min;
+    }
+        
+    function maxarr(arr) {
+        var k = 0
+        var max = arr[k];
+        while (k<arr.length) {
+            if (max<arr[k]) {
+                max = arr[k];
+            }
+            k++;
+        }
+        return max;
+    }
+
+        var Arr = new Array();
+        var n = 0;      
+        var newstring = '[';
+        for (var i = 0; i<10; i++){
+           n= parseInt(prompt('Nhập phần tử thứ ' + i +' của mảng'));
+           Arr.push(n);
+           newstring = newstring + n +',';
+        }
+        newstring+= ']';
+        document.write( "<p>– Mảng vừa nhập vào là: arr = " + newstring + "</p>" +
+                        "<p>– Giá trị lớn nhất trong mảng là: " + maxarr(Arr) + " </p>"+
+                        "<p>– Giá trị nhỏ nhất trong mảng là: " + minarr(Arr)+ "</p>");
+                        console.log(Arr[3]);
+
+    </script>
+</body>
+</html>

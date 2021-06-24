@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính điểm trung bình môn</title>
+</head>
+<body>
+    <h2>Tính điểm trung bình và xếp loại</h2>
+    <table border="1">
+        <tr style="height:25px;">
+            <td>Môn Toán</td>
+            <td>Môn Lý</td>
+            <td>Hôn Hóa</td>
+        </tr>
+        <tr style="height:25px;">
+            <td>
+                <input type="text" id="Toan" placeholder="Điểm toán" style="width: 60px;">
+            </td>
+            <td>
+                <input type="text" id="Ly" placeholder="Điểm lý" style="width: 60px;">
+            </td>
+            <td>
+                <input type="text" id="Hoa" placeholder="Điểm hóa" style="width: 60px;">
+            </td>
+        </tr>
+        <tr style="height:25px;">
+            <td colspan="3">
+                <label for="" style="margin-left: 50px;">Điểm Trung Bình</label>
+            </td>
+        </tr>
+        <tr style="height:25px;">
+            <td colspan="3">
+                <label for="" id="ĐTB"></label>
+            </td>
+        </tr>
+        <tr style="height:25px;">
+            <td colspan="3">
+                <label for=""  style="margin-left: 50px;">Xếp loại</label>
+            </td>
+        </tr>
+        <tr style="height:25px;">
+            <td colspan="3">
+                <label for="" id="XL"></label>
+            </td>
+        </tr>
+    </table> <br>
+    <input type="button" value="RUN" onclick="run()">
+    <script>
+        
+        function DiemTrungBinh (a,b,c) {
+            return (a+b+c)/3;
+        }
+        function XepLoai (dtb) {
+            if (dtb>=8) { return 'A';}
+            else if (dtb<8 && dtb >=6) { return 'B';}
+                else if (dtb<6 && dtb >=4) { return 'C';}
+                    else if (dtb<4) { return 'F';}
+        }
+        function run() {
+        var Toan = parseInt(document.getElementById('Toan').value);
+        var Ly = parseInt(document.getElementById('Ly').value);
+        var Hoa = parseInt(document.getElementById('Hoa').value);
+            document.getElementById('ĐTB').innerHTML = DiemTrungBinh(Toan,Ly,Hoa).toFixed(2);
+            document.getElementById('XL').innerHTML = XepLoai(DiemTrungBinh(Toan,Ly,Hoa));
+        }
+
+    </script>
+</body>
+</html>

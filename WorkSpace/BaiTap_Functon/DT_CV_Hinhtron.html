@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DT và CV hình tròn</title>
+</head>
+<body>
+    <h3>Diện tích và Chu vi hình tròn</h3>
+    <input type="text" id="bankinh" placeholder="Ban kinh">
+    <input type="button" value="Tính" onclick="run()"> <br> <br>
+    <label for="" id="ketqua"></label>
+    <script>
+        function dientich (a) {
+            return 3.14*a*a;
+        }
+        function chuvi (a){
+            return 3.14*a*2;
+        }
+        function run () {
+        var bankinh = parseInt(document.getElementById('bankinh').value);
+        document.getElementById('ketqua').innerHTML = 'Chu vi hình tròn la: '+ chuvi(bankinh).toFixed(2) + '; Diện tích hình tròn là: ' + dientich(bankinh).toFixed(2);
+        }
+    </script>
+</body>
+</html>

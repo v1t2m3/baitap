@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý bán hàng</title>
+</head>
+<body>
+    <div class="product">
+        <h3>Input product's detail information</h3>
+        <label for="">Product name</label> <br>
+        <input type="text" id="name" placeholder="Product's name"> <br>
+        <label for="">Category Name</label> <br>
+        <input type="text" id="category" placeholder="Category"> <br>
+        <label for="">Price</label> <br>
+        <input type="text" id="price" placeholder="Price"> <br>
+        <label for="" >Quantity</label> <br>
+        <input type="text" id="quantity" placeholder="Quantity"> <br>
+        <label for="">Total Price</label> <br>
+        <input type="text" id="total" placeholder="Total Price"> <br>
+        <label for="">Manufacture</label> <br>
+        <input type="text" id="manufacture" placeholder="Manufacture"> <br>
+        <input type="button" value="Add Product" onclick="Add()">
+        <input type="button" value="Reset" onclick="Reset()">
+    </div>
+    <div class="management">
+        <label for="">Management Products</label>
+        <table id="product_table" border="1">
+            <tr>
+                <th>No</th>
+                <th>Product Name</th>
+                <th>Category Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Manufacture Name</th>
+            </tr>
+        </table>
+
+    </div>
+    <script>
+        class product {
+            constructor (name, category,price, quantity,manufacture) {
+                this.Name = name;
+                this.Category = category;
+                this.Price = price;
+                this.Quantity = quantity;
+                this.Manufacture = manufacture;
+            }
+            getName () {
+                return this.Name;
+            }
+            getCategory () {
+                return this.Category;
+            }
+            getPrice () {
+                return this.Price;
+            }
+            getQuantity () {
+                return this.Quantity;
+            }
+            getTotal () {
+                return this.Price*this.Quantity;
+            }
+            getManufacture () {
+                return this.Manufacture;
+            }
+            setName (name) {
+                this.Name = name;
+            }
+            setCategory (category) {
+                this.Category = category;
+            }
+            setPrice (price) {
+                this.Price = price;
+            }
+            setQuantity (quantity) {
+                this.Quantity = quantity;
+            }
+            setManufacture (manufacture) {
+                this.Manufacture = manufacture;
+            }
+        }
+        var ArrProduct = new Array();
+        var NewProduct = new product();
+        var table = document.getElementById("product_table");
+        var count = 0;
+        function Add() {
+        NewProduct.setName(document.getElementById('name').value);
+        NewProduct.setCategory(document.getElementById('category').value);
+        NewProduct.setPrice(parseInt(document.getElementById('price').value));
+        NewProduct.setQuantity(parseInt(document.getElementById('quantity').value));
+        NewProduct.setManufacture(document.getElementById('manufacture').value);
+        ArrProduct.push(NewProduct);
+        //console.log(ArrProduct[ArrProduct.length-1]);
+            let row = table.insertRow(ArrProduct.length);
+	        let cellNo = row.insertCell(0);
+                cellNo.innerHTML = ArrProduct.length;
+            let cellName = row.insertCell(1);
+                cellName.innerHTML = ArrProduct[ArrProduct.length-1].getName();
+            let cellCategory = row.insertCell(2);
+                cellCategory.innerHTML = ArrProduct[ArrProduct.length-1].getCategory();
+            let cellPrice = row.insertCell(3);
+                cellPrice.innerHTML = ArrProduct[ArrProduct.length-1].getPrice();
+            let cellQuantity = row.insertCell(4);
+                cellQuantity.innerHTML = ArrProduct[ArrProduct.length-1].getQuantity();
+            let cellTotal = row.insertCell(5);
+                cellTotal.innerHTML = ArrProduct[ArrProduct.length-1].getTotal();
+            let cellManufacture = row.insertCell(6);
+                cellManufacture.innerHTML = ArrProduct[ArrProduct.length-1].getManufacture();
+            let cellEdit = row.insertCell(7);
+                cellEdit.innerHTML = '<input type="button" value="Edit">';
+            let cellDelete = row.insertCell(8);
+                cellDelete.innerHTML = '<input type="button" value="Delete">';
+        }
+    </script>
+</body>
+</html>

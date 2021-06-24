@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+</head>
+<body>
+    <h5>Lương nhân viên</h5>
+    <input type="text" id="IdNV" placeholder="Mã số Nhân Viên"> <br> <br>
+    <input type="text" id="HoNV" placeholder="Họ Nhân Viên"> <br> <br>
+    <input type="text" id="TenNV" placeholder="Tên Nhân Viên"> <br> <br>
+    <input type="text" id="Luong" placeholder="Nhập số lương hằng tháng"> 
+    <input type="button" value="Xem" onclick="Show()"> <br> <br>
+    <input type="text" id="TangLuong" placeholder="Nhập % tăng lương">
+    <input type="button" value="Tăng lương" onclick="Raise()"> <br> <br>
+    <p id="NV"></p>
+    <script>
+        class Emplyee {
+            constructor (id, firstName, lastName, salary) {
+                this.Id = id;
+                this.FirstName = firstName;
+                this.LastName = lastName;
+                this.Salary = salary;
+            }
+            getId () {
+                return this.Id;
+            }
+            getFirstName () {
+                return this.FirstName;
+            }
+            getLastName () {
+                return this.LastName;
+            }
+            getSalary () {
+                return this.Salary;
+            }
+            getAnnualSalary () {
+                return this.Salary*12;
+            }
+            raiseSalary(percent) {
+                this.Salary = this.Salary*(100+percent)/100;
+                return this.Salary;
+            }
+        }
+        function Show(){
+            var idNV = document.getElementById('IdNV').value;
+            var hoNV = document.getElementById('HoNV').value;
+            var tenNV = document.getElementById('TenNV').value;
+            var luongNV = parseInt(document.getElementById('Luong').value);
+            var NhanVien = new Emplyee(idNV, hoNV,tenNV,luongNV);
+            document.getElementById('NV').innerHTML = 'Nhân viên: ' + NhanVien.getFirstName() + ' '+ NhanVien.getLastName() + ' , có mức lương '+ NhanVien.getSalary() +'/tháng; ' + NhanVien.getAnnualSalary() +'/năm.'  ;
+        }
+        function Raise(){
+            var idNV = document.getElementById('IdNV').value;
+            var hoNV = document.getElementById('HoNV').value;
+            var tenNV = document.getElementById('TenNV').value;
+            var luongNV = parseInt(document.getElementById('Luong').value);
+            var tangLuongNV = parseInt(document.getElementById('TangLuong').value);
+            var NhanVien = new Emplyee(idNV, hoNV,tenNV,luongNV);
+            NhanVien.raiseSalary(tangLuongNV)
+            document.getElementById('NV').innerHTML = 'Nhân viên: ' + NhanVien.getFirstName() + ' '+ NhanVien.getLastName() + ' , có mức lương '+ NhanVien.getSalary() +'/tháng; ' + NhanVien.getAnnualSalary() +'/năm.';
+        }
+    </script>
+</body>
+</html>

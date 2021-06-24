@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiem tra ky tu trong mang</title>
+</head>
+<body>
+    <script>
+        let a = prompt('Nhap chuoi bat ky');
+        let b = prompt('Nhap ky tu can tim');
+        function check(c,d) {
+            let ViTri='';
+            let Count = 0;
+            for (let i=0; i<c.length; i++){
+                if (c[i]===d) {
+                    Count ++;
+                    ViTri = ViTri + (i + 1) +' ,';
+                }
+            }
+            if (Count>0) {
+                ViTri = 'Ky tu \"' + d +'\" lap lai '+ Count + ' lan' + ' , va tai vi tri: ' + ViTri;  
+            } else {
+                ViTri = 'Ky tu khong co trong chuoi';
+            }
+            return ViTri;
+        }
+        alert(check(a,b));
+    </script>
+    
+</body>
+</html>

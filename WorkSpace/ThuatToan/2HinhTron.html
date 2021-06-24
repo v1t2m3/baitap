@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 Hình Tròn</title>
+</head>
+<body>
+    <h3>Vẽ 2 hình tròn</h3>
+    <input type="text" id="R1" placeholder="Nhập bán kính hình tròn 1"> <br> <br>
+    <input type="text" id="X1" placeholder="Nhập tọa đôi X hình tròn 1"> <br> <br>
+    <input type="text" id="Y1" placeholder="Nhập tọa đôi Y hình tròn 1"> <br> <br>
+    <input type="text" id="R2" placeholder="Nhập bán kính hình tròn 2"> <br> <br>
+    <input type="text" id="X2" placeholder="Nhập tọa đôi X hình tròn 2"> <br> <br>
+    <input type="text" id="Y2" placeholder="Nhập tọa đôi Y hình tròn 2"> <br> <br>
+    <input type="button" value="Vẽ" onclick="Draw()">
+    <input type="button" value="Xóa" onclick="Clear()"> <br> <br>
+    <label for="" id="Dec">Hai hình tròn: </label> <br> <br>
+    <canvas id="Canvas" width="600" height="300" style="background-color: blueviolet;"></canvas>
+    <script>
+        class HinhTron {
+            constructor (radius, color,x,y) {
+                this.Radius = radius;
+                this.Color = color;
+                this.X = x;
+                this.Y = y;
+            }
+            getRadius () {
+                return this.Radius;
+            }
+            getColor () {
+                return this.Color;
+            }
+            setLoc (x,y){
+                this.X = x;
+                this.Y = y;
+            }
+            setColor (color) {
+                this.Color = color;
+            }
+            setRadius (radius) {
+                this.Radius = radius;
+            }
+            draw (IdCanvas) {
+                let circle = document.getElementById(IdCanvas).getContext('2d');
+                circle.beginPath();
+                circle.fillStyle = this.Color;
+                circle.arc(this.X,this.Y,this.Radius, 0, 2*Math.PI);
+                circle.fill();
+            }
+            clear (IdCanvas) {
+                let circle = document.getElementById(IdCanvas).getContext('2d');
+                //circle.beginPath();
+                circle.clearRect(this.X - this.Radius, this.Y - this.Radius, this.Radius * 2, this.Radius * 2);
+                //circle.closePath();
+            }    
+        }
+        var circle1 = new HinhTron();
+        var circle2 = new HinhTron();
+        function Draw() {
+            var R1 = parseInt(document.getElementById('R1').value);
+            var X1 = parseInt(document.getElementById('X1').value);
+            var Y1 = parseInt(document.getElementById('Y1').value);
+            var R2 = parseInt(document.getElementById('R2').value);
+            var X2 = parseInt(document.getElementById('X2').value);
+            var Y2 = parseInt(document.getElementById('Y2').value);
+            circle1.setRadius(R1);
+            circle1.setLoc(X1,Y1);
+            circle1.setColor('red');
+            circle2.setRadius(R2);
+            circle2.setLoc(X2,Y2);
+            circle2.setColor('green');
+            var result ='';
+            circle1.draw('Canvas');
+            circle2.draw('Canvas');
+            var dis1 = (circle1.X - circle2.X)*(circle1.X - circle2.X) + (circle1.Y - circle2.Y)*(circle1.Y - circle2.Y)
+            var dis2 = Math.pow((circle1.Radius + circle2.Radius),2);
+            if (dis1 == dis2) {
+                result = 'Hai hình tròn chạm nhau';
+            } else if (dis1 < dis2) {
+            result = 'Hai hình tròn chồng nhau';
+            } else {
+            result = 'Hai hình tròn xa nhau';
+            }
+            document.getElementById('Dec').innerHTML='Hai hình tròn: '+ result;
+        }
+        function Clear() {
+            circle1.clear('Canvas');
+            circle2.clear('Canvas');
+        }
+    </script>
+</body>
+</html>

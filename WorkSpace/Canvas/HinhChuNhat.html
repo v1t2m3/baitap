@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HInh chu nhat</title>
+</head>
+<body>
+    <canvas id="game" width="800" height="600" style="border: 1px solid #000000"></canvas> <br>
+    <input type="button" value="Star/Stop" onclick="Stop()"> <br>
+    <input type="button" value="Acceleration" onclick="RaiseSpeed()">
+    <input type="button" value="Decceleration" onclick="LowerSpeed()">
+    
+</body>
+<script>
+    
+    var gamecontext = document.getElementById('game').getContext('2d');
+    var RectPosition = 20;
+    var moveup = true;
+    var movedown = false;
+    var stopBtstatus = false;
+    var width = 150;
+    var height = 100;
+    var speed = 10;
+    gamecontext.beginPath();
+    gamecontext.fillStyle= 'green';
+    gamecontext.fillRect(20,RectPosition,width,height);
+    var intev;
+    function RunRect () {
+    intev =   setInterval(() => {
+        gamecontext.clearRect(20,RectPosition,width,height)
+        if (RectPosition>0 && moveup==true) {
+        RectPosition --;
+            if (RectPosition == 0) {
+                moveup = false;
+                movedown = true;
+            }
+        } 
+        if (RectPosition<600 && movedown==true) {
+        RectPosition ++;
+            if (RectPosition == (600-height)) {
+                moveup = true;
+                movedown = false;
+            }
+        }
+        gamecontext.beginPath();
+        gamecontext.fillStyle= 'green';
+        gamecontext.fillRect(20, RectPosition,150 ,100);
+        }, speed);
+    }
+    function Stop() {
+        stopBtstatus = !stopBtstatus;
+        console.log(stopBtstatus); 
+        if (stopBtstatus == true) {
+            RunRect ();
+        } else {
+            clearInterval (intev);
+        }
+    }
+    function LowerSpeed() {
+        speed = speed + 100;
+        console.log(speed);
+        RunRect();
+    }
+    function RaiseSpeed() {
+        if (speed >0) {
+            speed= speed - 100;
+            console.log(speed);
+            RunRect();
+        }
+
+    }
+
+        
+
+   
+</script>
+</html>

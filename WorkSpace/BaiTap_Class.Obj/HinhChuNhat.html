@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hình chữ nhật</title>
+</head>
+<body>
+    <h4>Hình chữ nhật</h4>
+    <input type="text" id="chieudai" placeholder="Nhập chiều dài"> <br> <br>
+    <input type="text" id="chieurong" placeholder="Nhập chiều rộng"> <br> <br>
+    <input type="button" value="Tính" onclick="run()"> <br> <br>
+    <label for="" id="chuvi"></label> <br> 
+    <label for="" id="dientich"></label>
+    <script>
+        class Rec {
+            constructor (le,wi) {
+                this.length = le;
+                this.width = wi;
+            }
+            chuvi (){
+                return (this.length+this.width)*2;
+            }
+            dientich (){
+                return this.length*this.width;
+            }
+            setLenght (le) {
+                this.length = le;
+            }
+            setWidth (wi) {
+                this.width = wi;
+            }
+        }
+        function run() {
+        var chunhat = new Rec();
+        chunhat.setLenght(parseInt(document.getElementById('chieudai').value));
+        chunhat.setWidth(parseInt(document.getElementById('chieudai').value));
+        document.getElementById('chuvi').innerHTML = 'Chu vi hình chữ nhật là: '+ chunhat.chuvi();
+        document.getElementById('dientich').innerHTML = 'Diện tích hình chữ nhật là: '+ chunhat.dientich();
+        }
+    </script>
+
+    
+</body>
+</html>

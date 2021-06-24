@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính gia thừa</title>
+</head>
+<body>
+    <h3>Tính gia thừa số bất kỳ</h3>
+    <input type="text" id="soN" placeholder="Số bất kỳ">
+    <input type="button" value="Tính" onclick="run()"> <br> <br>
+    <label for="" id="ketqua"></label>
+    <script>
+        function giaithua (n) {
+            let i = 1;
+            var giaithuaN = 1;
+            while (i<=n){
+            giaithuaN = giaithuaN*i;
+            i ++;
+            }
+            return giaithuaN;   
+        }
+       
+        function run () {
+        var N = parseInt(document.getElementById('soN').value);
+        document.getElementById('ketqua').innerHTML = 'Giai thừa số ' + N +'! là : ' + giaithua(N);
+    }
+    </script>
+    
+</body>
+</html>

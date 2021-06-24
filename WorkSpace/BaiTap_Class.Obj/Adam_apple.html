@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam apple</title>
+</head>
+<body>
+    <h4>Adam and Apple</h4>
+    <input type="text" id="TenNV1" placeholder="Tên Nguoi 1"> <br> <br>
+    <select name="Gender" id="Gender1">
+        <option value="Male">Nam</option>
+        <option value="Female">Nữ</option>
+    </select> <br> <br>
+    <input type="text" id="CanNang1" placeholder="Cân nặng người 1"> <br> <br>
+    <input type="text" id="LoiNoi1" placeholder="Lời Nói 1"> <br> <br>
+
+    <input type="text" id="TenNV2" placeholder="Tên Nguoi 2"> <br> <br>
+    <select name="Gender" id="Gender2">
+        <option value="Male">Nam</option>
+        <option value="Female">Nữ</option>
+    </select> <br> <br>
+    <input type="text" id="CanNang2" placeholder="Cân nặng người 2"> <br> <br>
+    <input type="text" id="LoiNoi2" placeholder="Lời Nói 2"> <br> <br>
+
+    <input type="text" id="KLTao" placeholder="Khối lượng quả táo"> <br> <br>
+    <input type="button" value="Eat" onclick="Action()">
+    <input type="button" value="Show" onclick="Show()"> <br> <br>
+    <p id="content"></p>
+    <script>
+        class Apple {
+            constructor(weight) {
+                this.Weight = weight;
+            }
+            isEmpty () {
+                if (this.Weight >0) {
+                    return false;
+                } else {
+                return true;
+                }
+            }
+            decrease () {
+                this.Weight --;
+            }
+            getWeight () {
+                return this.Weight;
+            }
+        }
+        class Human {
+            constructor (name, gender, weight, stringA) {
+                this.Name = name;
+                this.Gender = gender;
+                this.Weight = weight;
+                this.StringA = stringA;
+            }
+            isMale () {
+                if (this.Gender == 'Male') {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            setGender (gender) {
+                this.Gender = gender;
+            }
+            checkApple (Apple) {
+                if (Apple.isEmpty()) {
+                    return false;
+                } else {
+                    return true;
+                }
+                console.log('CheckApple: ',checkApple(Apple));
+            }
+            eat (Apple) {
+                if (this.checkApple(Apple)) {
+                    Apple.decrease();
+                    this.Weight ++;
+                }
+            }
+            say () {
+                return this.StringA;
+            }
+            getName () {
+               return this.Name;
+            }
+            setName (stringName) {
+                this.Name = stringName;
+            }
+            getWeight () {
+               return this.Weight;
+            }
+            setWeight (numberWeight) {
+                this.Weight = numberWeight;
+            }
+            
+        }
+            /* function Show () {
+            var nameHumnan = document.getElementById('TenNV').value;
+            var genderHuman = document.getElementById('Gender').value;
+            var weightHuman = parseInt(document.getElementById('CanNang').value);
+            var weightApple = parseInt(document.getElementById('KLTao').value);
+            var apple = new Apple(weightApple);
+            var Adam = new Human(nameHumnan,genderHuman,weightHuman);
+            document.getElementById('content').innerHTML = '';
+            document.getElementById('content').innerHTML = 
+            "Tên nhân vật: " +Adam.getName()
+            + ' Giới tính Nam: ' + Adam.isMale()
+            + ' Cân nặng: '+ Adam.getWeight()
+            + ' Khối lượng táo: ' + apple.getWeight(); 
+        }*/
+            function Action () {
+                var conversation = '';
+                var nameHumnan1 = document.getElementById('TenNV1').value;
+                var genderHuman1 = document.getElementById('Gender1').value;
+                var stringHuman1 = document.getElementById('LoiNoi1').value;
+                var weightHuman1 = parseInt(document.getElementById('CanNang1').value);
+
+                var nameHumnan2 = document.getElementById('TenNV2').value;
+                var genderHuman2 = document.getElementById('Gender2').value;
+                var stringHuman2 = document.getElementById('LoiNoi2').value;
+                var weightHuman2 = parseInt(document.getElementById('CanNang2').value);
+
+                var weightApple = parseInt(document.getElementById('KLTao').value);
+                var apple = new Apple(weightApple);
+                var huMan1 = new Human(nameHumnan1,genderHuman1,weightHuman1, stringHuman1);
+                var huMan2 = new Human(nameHumnan2,genderHuman2,weightHuman2, stringHuman2);
+
+                while (!apple.isEmpty()) {
+                    huMan1.eat(apple);
+                    conversation = conversation +
+                    'Tên nhân vật: ' +huMan1.getName()
+                    + ' Giới tính Nam: ' + huMan1.isMale()
+                    + ' Cân nặng: '+ huMan1.getWeight()
+                    + ' Khối lượng táo: ' + apple.getWeight()
+                    + ' Nói: ' + huMan1.say() + '<br>'
+                    huMan2.eat(apple);
+                    conversation = conversation
+                    + 'Tên nhân vật: ' +huMan2.getName()
+                    + ' Giới tính Nam: ' + huMan2.isMale()
+                    + ' Cân nặng: '+ huMan2.getWeight()
+                    + ' Khối lượng táo: ' + apple.getWeight()
+                    + ' Nói: ' + huMan2.say() + '<br>';
+                }
+                document.getElementById('content').innerHTML = conversation;
+            
+        }
+    </script>
+    
+</body>
+</html>

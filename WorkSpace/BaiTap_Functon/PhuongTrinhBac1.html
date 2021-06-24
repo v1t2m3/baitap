@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ax+B=0</title>
+</head>
+<body>
+    <script>
+        var i = parseInt(prompt('Nhập số: ax'));
+        var j = parseInt(prompt('Nhập số b'));
+        document.write('<p>– Phương trình bạn vừa nhập vào là:' + i+'x +'+j+' = 0</p>');
+        document.write('<p>– Nghiệm của phương trình là: x = ' + giai(i,j) + '</p>');
+        function giai(a, b){
+            return -b/a;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doi cho 2 so nguyen</title>
+</head>
+<body>
+    <script>
+        let a = prompt('Nhap so a');
+        function DaoSo(n) {
+            let NewNum ='';
+            if (parseInt(n)>99 || parseInt(n)<10) {
+                NewNum = 'So nhap vao khong hop le';
+            }
+            else {
+            NewNum = n[1]+n[0];
+            }
+            return NewNum;
+        }
+        alert(DaoSo(a));
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuật toán với mảng</title>
+</head>
+<body>
+    <script>
+        var a = parseInt(prompt('Nhập số cần tìm trong chuỗi ngẫu nhiên'));
+        var flat1 = false;
+        var strNumber = '';
+        var count1 = 0;
+        var result1 = '';
+        var result2 = '';
+        var numbers = Array();
+        for (var i=0; i<50; i ++){
+            numbers[i] = Math.floor(Math.random()*100);
+            strNumber = strNumber + ' '+  numbers[i];
+            if ((i+1)%10==0) {
+                strNumber = strNumber + '</br>';
+            }
+        }
+        for (var j = 0; j <numbers.length; j++) {
+            if (numbers[j] ==a && flat1 == false) {
+                result1 = 'Số '+ a + ' xuất hiện đầu tiên tại vị trí thứ ' + (j+1);
+                flat1 = true;
+            }
+            if (numbers[j] ==a) {
+                count1 ++;
+            }
+            
+        }
+        result2 = 'Số '+ a + ' xuất hiện ' + count1 + ' lần trong chuỗi';
+        document.write(strNumber + '</br>' + result1 + '</br>' + result2);
+    </script>
+    
+</body>
+</html>
